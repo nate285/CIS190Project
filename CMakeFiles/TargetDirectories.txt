@@ -1,0 +1,3 @@
+/home/ubuntu/CIS190Project/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/CIS190Project/CMakeFiles/edit_cache.dir
+/home/ubuntu/CIS190Project/CMakeFiles/DisplayImage.dir
