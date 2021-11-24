@@ -26,6 +26,11 @@ void useWebcam()
     }
 }
 
+void doneCallback(int state, void *data)
+{
+    state = 1;
+}
+
 void objectDetect()
 {
     VideoCapture vid(0);
@@ -47,8 +52,13 @@ void objectDetect()
     vector<Rect> faces;
     int c = 0;
     Mat matrix, imgWarp, result;
-    imshow("glassess", sunglasses);
 
+    //UI
+    int done = 0;
+    namedWindow("Controls", (100, 100));
+    createTrackbar("Done", "Controls", &done, 1);
+
+    //END OF UI
     while (true)
     {
         vid.read(img);
@@ -68,14 +78,14 @@ void objectDetect()
             float height = top - bottom;
             float width = right - left;
 
-            cout << "AAA\n";
+            // cout << "AAA\n";
             resize(sunglasses, imgWarp, curr.size());
-            cout << "BBBB\n";
+            // cout << "BBBB\n";
             resize(imgWarp, result, Size(), 1.4, 1.4);
-            
-            Mat destinationROI = img(Rect(Point(left-(int)(width*.2), top), result.size()));
 
-            cout << "CCCCC\n";
+            Mat destinationROI = img(Rect(Point(left - (int)(width * .2), top), result.size()));
+
+            // cout << "CCCCC\n";
             result.copyTo(destinationROI);
 
             // draw square around ROI
@@ -85,6 +95,10 @@ void objectDetect()
         imshow("Webcam", img);
 
         waitKey(1);
+        if (done)
+        {
+            break;
+        }
     }
 }
 
