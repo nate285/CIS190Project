@@ -3,6 +3,7 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
+#include <opencv2/objdetect.hpp>
 #include <iostream>
 
 using namespace cv;
@@ -20,6 +21,68 @@ void useWebcam()
         cvtColor(img, imgGrey, COLOR_BGR2GRAY);
         Canny(imgGrey, imgCanny, 50, 150);
         imshow("Image", imgCanny);
+
+        waitKey(1);
+    }
+}
+
+void objectDetect()
+{
+    VideoCapture vid(0);
+    Mat img = imread("images/amy2.jpg");
+    Mat modifiedImg;
+    CascadeClassifier faceCascade;
+    faceCascade.load("Resources/twoeyes.xml");
+    if (faceCascade.empty())
+    {
+        cout << "cascade empty\n";
+        return;
+    }
+    Mat sunglasses = imread("images/sunglasses.png");
+
+    float sHeight = (float)sunglasses.size().height;
+    float sWidth = (float)sunglasses.size().width;
+    Point2f src[4] = {{0.0f, 0.0f}, {sWidth, 0.0f}, {0.0f, sHeight}, {sWidth, sHeight}};
+
+    vector<Rect> faces;
+    int c = 0;
+    Mat matrix, imgWarp, result;
+    imshow("glassess", sunglasses);
+
+    while (true)
+    {
+        vid.read(img);
+        c++;
+        // only re-calculate every 5 ms (otherwise it takes forever)
+        if (c % 5 == 0)
+        {
+            faceCascade.detectMultiScale(img, faces, 1.1, 10);
+        }
+        for (int i = 0; i < faces.size(); i++)
+        {
+            Rect curr = faces[i];
+            float left = curr.tl().x;
+            float top = curr.tl().y;
+            float right = curr.br().x;
+            float bottom = curr.br().y;
+            float height = top - bottom;
+            float width = right - left;
+
+            cout << "AAA\n";
+            resize(sunglasses, imgWarp, curr.size());
+            cout << "BBBB\n";
+            resize(imgWarp, result, Size(), 1.4, 1.4);
+            
+            Mat destinationROI = img(Rect(Point(left-(int)(width*.2), top), result.size()));
+
+            cout << "CCCCC\n";
+            result.copyTo(destinationROI);
+
+            // draw square around ROI
+            // rectangle(img, faces[i].tl(), faces[i].br(), Scalar(255, 255, 255), 5);
+        }
+
+        imshow("Webcam", img);
 
         waitKey(1);
     }
@@ -46,8 +109,8 @@ void webcamResize()
     {
         vid.read(img);
         resize(img, imgResize, Size(), 0.5, 0.5);
-       Rect roi(100, 100, 200, 250);
-        imgCrop=img(roi);
+        Rect roi(100, 100, 200, 250);
+        imgCrop = img(roi);
         imshow("Image", imgResize);
         imshow("Image Cropped", imgCrop);
 
@@ -55,13 +118,27 @@ void webcamResize()
     }
 }
 
+void drawShapesAndText()
+{
+    VideoCapture vid(0);
+
+    Mat img(512, 512, CV_8UC3, Scalar(255, 255, 250));
+
+    circle(img, Point(256, 256), 155, Scalar(0, 69, 255), 10);
+
+    imshow("Drawing", img);
+    waitKey(0);
+}
+
 int main(int argc, char **argv)
 {
 
     string path = "waves.mp4";
-    webcamResize();
+    // webcamResize();
     // useWebcam();
     // imageProcessing();
+    // drawShapesAndText();
+    objectDetect();
 
     return 0;
 }
