@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <QApplication>
+#include <QLabel>
+#include <QWidget>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
@@ -8,23 +11,6 @@
 
 using namespace cv;
 using namespace std;
-
-void useWebcam()
-{
-    VideoCapture vid(0);
-
-    Mat img, imgGrey, imgCanny;
-
-    while (true)
-    {
-        vid.read(img);
-        cvtColor(img, imgGrey, COLOR_BGR2GRAY);
-        Canny(imgGrey, imgCanny, 50, 150);
-        imshow("Image", imgCanny);
-
-        waitKey(1);
-    }
-}
 
 void doneCallback(int state, void *data)
 {
@@ -102,92 +88,18 @@ void objectDetect()
     }
 }
 
-void imageProcessing()
-{
-    string path = "amy2.jpg";
-    Mat img = imread(path);
-    Mat imgGrey;
-    cvtColor(img, imgGrey, COLOR_BGR2GRAY);
-
-    imshow("Greyscale", imgGrey);
-    waitKey(0);
-}
-
-void webcamResize()
-{
-    VideoCapture vid(0);
-
-    Mat img, imgResize, imgCrop;
-
-    while (true)
-    {
-        vid.read(img);
-        resize(img, imgResize, Size(), 0.5, 0.5);
-        Rect roi(100, 100, 200, 250);
-        imgCrop = img(roi);
-        imshow("Image", imgResize);
-        imshow("Image Cropped", imgCrop);
-
-        waitKey(1);
-    }
-}
-
-void drawShapesAndText()
-{
-    VideoCapture vid(0);
-
-    Mat img(512, 512, CV_8UC3, Scalar(255, 255, 250));
-
-    circle(img, Point(256, 256), 155, Scalar(0, 69, 255), 10);
-
-    imshow("Drawing", img);
-    waitKey(0);
-}
-
 int main(int argc, char **argv)
 {
 
     string path = "waves.mp4";
-    // webcamResize();
-    // useWebcam();
-    // imageProcessing();
-    // drawShapesAndText();
-    objectDetect();
+
+    // objectDetect();
+    QApplication app(argc, argv);
+    QLabel hello("<center>Welcome to my first Qt program</center>");
+    hello.setWindowTitle("My First Qt Program");
+    hello.resize(400, 400);
+    hello.show();
+    return app.exec();
 
     return 0;
 }
-
-// int main(int argc, char** argv )
-// {
-//     // if ( argc != 2 )
-//     // {
-//     //     printf("usage: DisplayImage.out <Image_Path>\n");
-//     //     return -1;
-//     // }
-
-//     string path="waves.mp4";
-
-//     VideoCapture vid(path);
-
-//     Mat image;
-
-//     while(true){
-//         vid.read(image);
-//         imshow("Image", image);
-//         waitKey(1);
-//     }
-
-//     // image = imread( argv[1], 1 );
-
-//     // if ( !image.data )
-//     // {
-//     //     printf("No image data \n");
-//     //     return -1;
-//     // }
-//     // namedWindow("Display Image", WINDOW_AUTOSIZE );
-//     // imshow("Display Image", image);
-
-//     // waitKey(0);
-
-//     return 0;
-// }
