@@ -1,4 +1,4 @@
-# Install script for directory: /home/ubuntu/CIS190Project
+# Install script for directory: /home/nateh/school/cis190/prj/CIS190Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ubuntu/CIS190Project/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nateh/school/cis190/prj/CIS190Project/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

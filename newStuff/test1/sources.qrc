@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/cascades">
+        <file>twoeyes.xml</file>
+        <file>sunglasses.png</file>
+    </qresource>
+</RCC>

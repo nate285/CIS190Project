@@ -51,11 +51,11 @@ void objectDetect()
 
     vector<Rect> faces;
     int c = 0;
-    Mat matrix, imgWarp, result;
+    Mat matrix, imgWarp, result, destinationROI;
 
     //UI
     int done = 0;
-    namedWindow("Controls", (100, 100));
+    namedWindow("Controls", (100, 50));
     createTrackbar("Done", "Controls", &done, 1);
 
     //END OF UI
@@ -82,8 +82,10 @@ void objectDetect()
             resize(sunglasses, imgWarp, curr.size());
             // cout << "BBBB\n";
             resize(imgWarp, result, Size(), 1.4, 1.4);
+            if(left+width*1.4<img.cols && top+height*1.4<img.rows ){
 
-            Mat destinationROI = img(Rect(Point(left - (int)(width * .2), top), result.size()));
+                destinationROI = img(Rect(Point(left - (int)(width * .2), top), result.size()));
+            }
 
             // cout << "CCCCC\n";
             result.copyTo(destinationROI);
@@ -97,6 +99,7 @@ void objectDetect()
         waitKey(1);
         if (done)
         {
+            imwrite("../image.jpg", img);
             break;
         }
     }

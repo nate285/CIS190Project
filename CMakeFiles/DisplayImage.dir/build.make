@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/CIS190Project
+CMAKE_SOURCE_DIR = /home/nateh/school/cis190/prj/CIS190Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/CIS190Project
+CMAKE_BINARY_DIR = /home/nateh/school/cis190/prj/CIS190Project
 
 # Include any dependencies generated for this target.
 include CMakeFiles/DisplayImage.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/DisplayImage.dir/flags.make
 
 CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: CMakeFiles/DisplayImage.dir/flags.make
 CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/CIS190Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o -c /home/ubuntu/CIS190Project/DisplayImage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nateh/school/cis190/prj/CIS190Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o -c /home/nateh/school/cis190/prj/CIS190Project/DisplayImage.cpp
 
 CMakeFiles/DisplayImage.dir/DisplayImage.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DisplayImage.dir/DisplayImage.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/CIS190Project/DisplayImage.cpp > CMakeFiles/DisplayImage.dir/DisplayImage.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nateh/school/cis190/prj/CIS190Project/DisplayImage.cpp > CMakeFiles/DisplayImage.dir/DisplayImage.cpp.i
 
 CMakeFiles/DisplayImage.dir/DisplayImage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DisplayImage.dir/DisplayImage.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/CIS190Project/DisplayImage.cpp -o CMakeFiles/DisplayImage.dir/DisplayImage.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nateh/school/cis190/prj/CIS190Project/DisplayImage.cpp -o CMakeFiles/DisplayImage.dir/DisplayImage.cpp.s
 
 # Object files for target DisplayImage
 DisplayImage_OBJECTS = \
@@ -79,23 +79,23 @@ DisplayImage_EXTERNAL_OBJECTS =
 
 DisplayImage: CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o
 DisplayImage: CMakeFiles/DisplayImage.dir/build.make
-DisplayImage: /usr/local/lib/libopencv_gapi.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_highgui.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_ml.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_objdetect.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_photo.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_stitching.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_video.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_videoio.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_dnn.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_imgcodecs.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_calib3d.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_features2d.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_flann.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_imgproc.so.4.5.3
-DisplayImage: /usr/local/lib/libopencv_core.so.4.5.3
+DisplayImage: /usr/local/lib/libopencv_gapi.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_highgui.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_ml.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_objdetect.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_photo.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_stitching.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_video.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_videoio.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_imgcodecs.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_dnn.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_calib3d.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_features2d.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_flann.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_imgproc.so.4.5.4
+DisplayImage: /usr/local/lib/libopencv_core.so.4.5.4
 DisplayImage: CMakeFiles/DisplayImage.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/CIS190Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable DisplayImage"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nateh/school/cis190/prj/CIS190Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable DisplayImage"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DisplayImage.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/DisplayImage.dir/clean:
 .PHONY : CMakeFiles/DisplayImage.dir/clean
 
 CMakeFiles/DisplayImage.dir/depend:
-	cd /home/ubuntu/CIS190Project && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/CIS190Project /home/ubuntu/CIS190Project /home/ubuntu/CIS190Project /home/ubuntu/CIS190Project /home/ubuntu/CIS190Project/CMakeFiles/DisplayImage.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nateh/school/cis190/prj/CIS190Project && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nateh/school/cis190/prj/CIS190Project /home/nateh/school/cis190/prj/CIS190Project /home/nateh/school/cis190/prj/CIS190Project /home/nateh/school/cis190/prj/CIS190Project /home/nateh/school/cis190/prj/CIS190Project/CMakeFiles/DisplayImage.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/DisplayImage.dir/depend
 
